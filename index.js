@@ -88,3 +88,77 @@ function viewDepartments() {
     })
     .then(() => loadMainPrompts());
 }
+
+function addDepartment() {
+    prompt([
+        {
+            name: "department",
+            message: "What is the name of the department being added?"
+        }
+    ])
+    .then(res => {
+        let name = res;
+        db.createDepartment(name)
+        .then(() => console.log('Department added!'))
+        .then(() => loadMainPrompts())
+    })
+}
+
+function viewRoles() {
+    db.findAllRoles()
+    .then(([rows]) => {
+        let roles = rows;
+        console.log("\n");
+        console.table(roles);
+    })
+    .then(() => loadMainPrompts());
+}
+
+function addRole() {
+    prompt([
+        {
+            name: "role",
+            message: "What is the name of the role being added?"
+        }
+    ])
+    .then(res => {
+        let name = res;
+        db.createRole(name)
+        .then(() => console.log('Role added!'))
+        .then(() => loadMainPrompts())
+    })
+}
+
+function viewEmployees() {
+    db.findAllEmployees()
+    .then(([rows]) => {
+        let employees = rows;
+        console.log("\n");
+        console.table(employees);
+    })
+    .then(() => loadMainPrompts());
+}
+
+function addEmployee() {
+    prompt([
+        {
+        name: "first_name",
+        message: "What is the employee's first name?"
+        },
+        {
+        name: "last_name",
+        message: "What is the employee's last name?"
+        }   
+    ])
+    .then(res => {
+        let firstName = res.first_name;
+        let lastName = res.last_name;
+        db.createRole(name)
+        .then(() => console.log('Role added!'))
+        .then(() => loadMainPrompts())
+    })
+}
+
+function quit() {
+  process.exit();
+}
