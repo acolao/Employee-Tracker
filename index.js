@@ -1,5 +1,7 @@
 const { prompt } = require("inquirer");
-const db = require("./db");
+const db = require("./server");
+
+Infinity();
 
 function loadMainPrompts() {
   prompt([
@@ -69,6 +71,7 @@ function loadMainPrompts() {
           value: "QUIT"
         }
       ]
+  
     }
 ]).then(res => {
     let choice = res.choice;
