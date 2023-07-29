@@ -56,9 +56,6 @@ function loadMainPrompts() {
         case "ADD_EMPLOYEE":
             addEmployee();
             break;
-        case "UPDATE_EMPLOYEE_ROLE":
-            updateEmployeeRole();
-            break;
         case "VIEW_ROLES":
             viewRoles();
             break;
@@ -153,8 +150,8 @@ function addEmployee() {
     .then(res => {
         let firstName = res.first_name;
         let lastName = res.last_name;
-        db.createRole(name)
-        .then(() => console.log('Role added!'))
+        db.createEmployee(name)
+        .then(() => console.log('Employee added!'))
         .then(() => loadMainPrompts())
     })
 }
