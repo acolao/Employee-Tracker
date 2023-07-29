@@ -2,6 +2,7 @@ const { Prompt } = require('inquirer');
 const fs = require('fs');
 const db = require('./db/connection');
 
+
 function loadMainPrompts() {
   prompt([
     {
